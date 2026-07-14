@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+.font {
+  font-family: "Libre Baskerville", serif;
+}

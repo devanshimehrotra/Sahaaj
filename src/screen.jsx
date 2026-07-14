@@ -1,30 +1,44 @@
 import { useEffect, useState } from "react";
 
-export default function ScreenSizeIndicator() {
-  const [screen, setScreen] = useState("");
+function MyComponent() {
+  const [screen, setScreen] = useState({
+    width: window.innerWidth,
+    breakpoint: "",
+  });
+
+  const getBreakpoint = (width) => {
+    if (width < 640) return "xs";
+    if (width < 768) return "sm";
+    if (width < 1024) return "md";
+    if (width < 1280) return "lg";
+    if (width < 1536) return "xl";
+    return "2xl";
+  };
 
   useEffect(() => {
-    const updateScreenSize = () => {
-      const width = window.innerWidth;
-
-      if (width < 640) setScreen("xs");
-      else if (width < 768) setScreen("sm");
-      else if (width < 1024) setScreen("md");
-      else if (width < 1280) setScreen("lg");
-      else if (width < 1536) setScreen("xl");
-      else setScreen("2xl");
+    const handleResize = () => {
+      setScreen({
+        width: window.innerWidth,
+        breakpoint: getBreakpoint(window.innerWidth),
+      });
     };
 
-    updateScreenSize();
-    window.addEventListener("resize", updateScreenSize);
+    handleResize(); // Set initial values
+    window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener("resize", updateScreenSize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-    <div className="fixed top-3 left-1/2 -translate-x-1/2 z-50 rounded-md bg-black px-4 py-2 text-white shadow-lg">
-      Screen: <span className="font-bold">{screen}</span> ({window.innerWidth}
-      px)
-    </div>
+    <>
+      <div className="fixed bottom-4 right-4 bg-black text-white p-3 rounded-lg text-sm">
+        <p>Width: {screen.width}px</p>
+        <p>Tailwind: {screen.breakpoint}</p>
+      </div>
+
+      {/* Your component */}
+    </>
   );
 }
+
+export default MyComponent;
