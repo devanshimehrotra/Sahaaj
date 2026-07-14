@@ -23,8 +23,34 @@ import { PiPlantLight } from "react-icons/pi";
 
 import MyComponent from "./screen";
 
+import { FaQuoteLeft } from "react-icons/fa";
+import { FaCircle, FaRegCircle } from "react-icons/fa";
+
 function App() {
+  const testimonials = [
+    {
+      id: 1,
+      message:
+        "We are a purpose-driven initiative that empowers rural women through handcrafted products and promotes a sustainable lifestyle.",
+      author: "Ananaya Sharma",
+    },
+    {
+      id: 2,
+      message:
+        "Every purchase creates opportunities for artisans while supporting eco-friendly craftsmanship and preserving traditional skills.",
+      author: "Riya Verma",
+    },
+    {
+      id: 3,
+      message:
+        "Our mission is to connect conscious consumers with handmade products that create meaningful social impact.",
+      author: "Priya Singh",
+    },
+  ];
+
   const [isOpen, setIsOpen] = useState(false);
+
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <div>
@@ -295,6 +321,7 @@ function App() {
         </div>
       </div>
 
+      {/* your purchase their empowerment our planet */}
       <div
         className="
     w-full
@@ -302,19 +329,19 @@ function App() {
     bg-center
     bg-no-repeat
     bg-[url('/bg-image.png')]
-    md:bg-[url('/bg-desk.png')]
+    md:bg-[url('/bg-desk.png')] mb-10
   "
       >
         <div className="flex flex-col p-5 text-[#273524] ">
-          <div className="flex flex-col  items-center text-xl leading-8 font-bold tracking-wide font md:flex-row justify-center md:mb-10 gap-2">
+          <div className="flex flex-col  items-center text-xl leading-8 font-bold tracking-wide font md:flex-row justify-center md:mb-2 gap-2  lg:mb-4">
             <div>Your Purchase.</div>
             <div>Their Empowerment.</div>
             <div>Our Planet.</div>
           </div>
 
           <div className="  md:hidden w-20 h-[2px] bg-[#273524]/50 mx-auto my-4 rounded-full "></div>
-          <div className="px-5 my-8 md:my-2 flex flex-col gap-7 text-sm font-light justify-center items-center md:flex-row md:gap-0">
-            <div className=" flex flex-row gap-4   items-center md:flex-col md:border-r md:border-[#273524]/40 md:p-4">
+          <div className="px-5 my-8 md:my-2 flex flex-col gap-7 text-sm font-light justify-center items-center md:flex-row md:gap-0 ">
+            <div className=" flex flex-row gap-4   items-center md:flex-col md:border-r md:border-[#273524]/40 md:p-4 ">
               <img src="./icon-11.png" className="w-12"></img>
               <div className="md:text-center">
                 Supports rural women and helps them earn with dignity
@@ -339,6 +366,59 @@ function App() {
                 Builds stronger communities and empowers futures
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Our Story */}
+      <div className="flex flex-col md:flex-row  ">
+        <div className="bg-[#273524] flex flex-col gap-4 text-white p-5 py-7 md:w-1/3 md:gap-2 md:py-3 md:justify-center lg:gap-5">
+          <div className="text-xl  font-bold md:text-sm lg:text-xl">
+            Our Story
+          </div>
+          <div className="text-3xl font  md:text-lg lg:text-2xl xl:text-3xl">
+            Small Choices,
+            <br /> Big Impact
+          </div>
+          <div className="text-lg font-light tracking-wide  md:text-[10px] md:leading-4 lg:text-xs xl:text-base xl:leading-6">
+            We are a purpose-driven initiative that empowers rural women through
+            handcrafted products and promotes a sustainable lifestyle.
+          </div>
+          <button className="text-base  w-36 py-3 border border-white rounded-sm  hover:border-[#faf5ed] hover:bg-[#faf5ed] hover:text-[#273524] md:text-sm  md:py-1.5 lg:text-base lg:py-2 ">
+            Know More<span className="ml-1">&rarr;</span>
+          </button>
+        </div>
+        <div className="flex w-full justify-end items-end sm:w-1/3 md:w-1/2">
+          <img
+            src="women.png"
+            className="border-r-0 border-b-0 rounded-br-lg"
+          ></img>
+        </div>
+        <div className="bg-[#faf5ed] text-[#273524] p-5 py-7 md:w-1/3 md:py-3 justify-center flex flex-col lg:gap-4">
+          <FaQuoteLeft className="text-3xl mb-5 md:mb-1" />
+
+          <div className="text-lg font-extralight tracking-wide mb-2  md:text-xs md:leading-5 lg:text-base">
+            {testimonials[activeIndex].message}
+          </div>
+
+          <div className="font-bold mb-3">
+            - {testimonials[activeIndex].author}
+          </div>
+
+          <div className="flex gap-2">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveIndex(index)}
+                className="cursor-pointer"
+              >
+                {index === activeIndex ? (
+                  <FaCircle className="text-[#273524] text-sm" />
+                ) : (
+                  <FaRegCircle className="text-[#273524] text-sm" />
+                )}
+              </button>
+            ))}
           </div>
         </div>
       </div>
