@@ -255,7 +255,7 @@ function App() {
       {/* bag - plant section */}
       <div className="my-10 mx-7 text-[#273524] flex flex-col gap-7 md:flex-row">
         <div className=" bg-[#efe3d1] flex flex-col border-0 rounded-lg sm:flex-row  ">
-          <div className="flex flex-col gap-5 p-5  pb-0 pr-0 sm:w-1/2 md:gap-3 lg:gap-4 xl:gap-6">
+          <div className="flex flex-col gap-5 p-5  pr-0 sm:w-1/2 md:gap-3 lg:gap-4 xl:gap-6">
             <div className="text-2xl font font-bold tracking-wide md:text-xl lg:text-3xl xl:text-4xl">
               Handmade Bags
             </div>
@@ -275,7 +275,7 @@ function App() {
         </div>
         {/* indore plants */}
         <div className=" bg-[#eae9e2] flex flex-col border-0 rounded-lg sm:flex-row  ">
-          <div className="flex flex-col gap-5 p-5  pb-0 pr-0 sm:w-1/2 md:gap-3 lg:gap-4 xl:gap-6">
+          <div className="flex flex-col gap-5 p-5  pr-0 sm:w-1/2 md:gap-3 lg:gap-4 xl:gap-6">
             <div className="text-2xl font font-bold tracking-wide md:text-xl lg:text-3xl xl:text-4xl">
               Indore Plants
             </div>
@@ -291,6 +291,54 @@ function App() {
               src="plant.png"
               className="border-r-0 border-b-0 rounded-br-lg"
             ></img>
+          </div>
+        </div>
+      </div>
+
+      <div
+        className="
+    w-full
+    bg-cover
+    bg-center
+    bg-no-repeat
+    bg-[url('/bg-image.png')]
+    md:bg-[url('/bg-desk.png')]
+  "
+      >
+        <div className="flex flex-col p-5 text-[#273524] ">
+          <div className="flex flex-col  items-center text-xl leading-8 font-bold tracking-wide font md:flex-row justify-center md:mb-10 gap-2">
+            <div>Your Purchase.</div>
+            <div>Their Empowerment.</div>
+            <div>Our Planet.</div>
+          </div>
+
+          <div className="  md:hidden w-20 h-[2px] bg-[#273524]/50 mx-auto my-4 rounded-full "></div>
+          <div className="px-5 my-8 md:my-2 flex flex-col gap-7 text-sm font-light justify-center items-center md:flex-row md:gap-0">
+            <div className=" flex flex-row gap-4   items-center md:flex-col md:border-r md:border-[#273524]/40 md:p-4">
+              <img src="./icon-11.png" className="w-12"></img>
+              <div className="md:text-center">
+                Supports rural women and helps them earn with dignity
+              </div>
+            </div>
+            <div className=" flex flex-row gap-4  items-center md:flex-col md:border-r md:border-[#273524]/40 md:p-4">
+              <img src="./icon-12.png" className="w-12"></img>
+              <div className="md:text-center">
+                Promotes eco-friendly products and reduces plastic use
+              </div>
+            </div>
+            <div className=" flex flex-row gap-4  items-center md:flex-col md:border-r md:border-[#273524]/40 md:p-4">
+              <img src="./icon-13.png" className="w-12"></img>
+              <div className="md:text-center">
+                Encourages a greener environment through plants and conscious
+                living
+              </div>
+            </div>
+            <div className=" flex flex-row gap-4  items-center md:flex-col md:p-4">
+              <img src="./icon-14.png" className="w-12"></img>
+              <div className="md:text-center">
+                Builds stronger communities and empowers futures
+              </div>
+            </div>
           </div>
         </div>
       </div>
