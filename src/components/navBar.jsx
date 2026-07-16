@@ -91,7 +91,7 @@ export default function NavBar() {
           <ul className="flex flex-col bg-[#faf5ed] border-t border-[#273524]/10">
             <li className="px-6 py-4 hover:bg-[#e0e4d5] cursor-pointer transition-colors flex flex-row items-center gap-3 hover:text-[#273524] hover:font-bold">
               <LuHouse size={18} />
-              <div>Home</div>
+              <button onClick={() => navigate("/")}>Home</button>
             </li>
 
             <li className="px-6 py-4 hover:bg-[#e0e4d5] cursor-pointer transition-colors flex flex-row items-center gap-3 hover:text-[#273524] hover:font-bold">
@@ -106,7 +106,7 @@ export default function NavBar() {
 
             <li className="px-6 py-4 hover:bg-[#e0e4d5] cursor-pointer transition-colors flex flex-row items-center gap-3 hover:text-[#273524] hover:font-bold">
               <LuBookOpen size={18} />
-              <div>Our Impact</div>
+              <button onClick={() => navigate("/impact")}>Our Impact</button>
             </li>
 
             <li className="px-6 py-4 hover:bg-[#e0e4d5] cursor-pointer transition-colors flex flex-row items-center gap-3 hover:text-[#273524] hover:font-bold">
