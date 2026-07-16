@@ -1,3 +1,8 @@
+import MyComponent from "./screen";
+import { LuShoppingBag } from "react-icons/lu";
+import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
+import { useEffect } from "react";
+
 import { useState } from "react";
 import {
   FaLeaf,
@@ -9,7 +14,6 @@ import {
 import { LuMenu, LuX } from "react-icons/lu";
 import {
   LuHouse,
-  LuShoppingBag,
   LuUsers,
   LuBookOpen,
   LuMail,
@@ -21,41 +25,24 @@ import {
 
 import { PiPlantLight } from "react-icons/pi";
 
-import MyComponent from "./screen";
-
-import { FaQuoteLeft } from "react-icons/fa";
 import { FaCircle, FaRegCircle } from "react-icons/fa";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 function App() {
-  const testimonials = [
-    {
-      id: 1,
-      message:
-        "We are a purpose-driven initiative that empowers rural women through handcrafted products and promotes a sustainable lifestyle.",
-      author: "Ananaya Sharma",
-    },
-    {
-      id: 2,
-      message:
-        "Every purchase creates opportunities for artisans while supporting eco-friendly craftsmanship and preserving traditional skills.",
-      author: "Riya Verma",
-    },
-    {
-      id: 3,
-      message:
-        "Our mission is to connect conscious consumers with handmade products that create meaningful social impact.",
-      author: "Priya Singh",
-    },
-  ];
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation duration
+      once: true, // animate only once
+      easing: "ease-in-out",
+    });
+  }, []);
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const [activeIndex, setActiveIndex] = useState(0);
-
   return (
     <div>
-      <MyComponent />
-
       {/* Top Banner */}
       <div className="text-white bg-[#273524] flex justify-center md:justify-between items-center h-8 text-xs px-5 font-extralight tracking-wider">
         <div className="hidden md:flex items-center gap-2">
@@ -85,7 +72,7 @@ function App() {
       </div>
 
       {/* Navbar */}
-      <nav className="bg-[#faf5ed] border-b border-[#273524]/20 shadow-sm  sticky top-0">
+      <nav className="bg-[#faf5ed] border-b border-[#273524]/20 shadow-sm  sticky top-0 z-50">
         <div className="px-5 py-3 flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center gap-2 ">
@@ -187,238 +174,220 @@ function App() {
               </div>
 
               {/* <div className=" gap-5 px-6 py-5 border-t border-[#273524]/10 flex flex-col bg-[#e0e4d5] text-sm text-[#273524]">
-                <div className="flex flex-row gap-3 items-center ">
-                  <img src="./icon_1.png" className="h-8"></img>
-                  <div>Free Shipping on orders above ₹999</div>
-                </div>
-                <div className="flex flex-row gap-3 items-center ">
-                  <img src="./icon_2.png" className="h-8"></img>
-                  <div>Secure Payments</div>
-                </div>
-                <div className="flex flex-row gap-3 items-center ">
-                  <img src="./icon_3.png" className="h-8"></img>
-                  <div>Easy Returns</div>
-                </div>
-                <div className="flex flex-row gap-3 items-center ">
-                  <img src="./icon_2.png" className="h-8"></img>
-                  <div>Support Artisans</div>
-                </div>
-              </div> */}
+                      <div className="flex flex-row gap-3 items-center ">
+                        <img src="./icon_1.png" className="h-8"></img>
+                        <div>Free Shipping on orders above ₹999</div>
+                      </div>
+                      <div className="flex flex-row gap-3 items-center ">
+                        <img src="./icon_2.png" className="h-8"></img>
+                        <div>Secure Payments</div>
+                      </div>
+                      <div className="flex flex-row gap-3 items-center ">
+                        <img src="./icon_3.png" className="h-8"></img>
+                        <div>Easy Returns</div>
+                      </div>
+                      <div className="flex flex-row gap-3 items-center ">
+                        <img src="./icon_2.png" className="h-8"></img>
+                        <div>Support Artisans</div>
+                      </div>
+                    </div> */}
             </ul>
           </div>
         </div>
       </nav>
 
-      {/* herosection */}
-      <div
-        className="w-full  bg-center bg-cover bg-no-repeat md:flex  md:flex-row justify-center items-center "
-        style={{
-          backgroundImage: "url('./header_image_mobile.png')",
-        }}
-      >
-        <div className="w-full p-5 py-8 text-[#273524] md:w-1/2 flex flex-col gap-6 md:gap-5 lg:gap-6 xl:gap-9 ">
-          <div className="text-4xl font  font-bold w-full overflow-hidden leading-12 tracking-wide flex flex-col  md:text-3xl md:leading-10 lg:text-4xl lg:leading-12 xl:text-5xl xl:leading-15">
-            <div className="mb-2 md:mb-1 lg:mb-3">
-              Empowering Women <br />
-            </div>
-            <div>
-              Nurturing Nature <br />
-            </div>
-          </div>
-          <div className="leading-7 text-lg tracking-wide font-light    lg:w-full md:text-sm md:leading-5 lg:leading-7 lg:text-lg">
-            Handcrafted bags by rural women and green choices for a better
-            tomorrow. Together, let's create a sustainable world.
+      <div className="flex flex-col md:flex-row bg-[#FAF6ED] text-[#2A3524] ">
+        {/* <MyComponent /> */}
+        <div className="w-full md:w-3/12 ">
+          {/* Mobile image */}
+          <img
+            src="./img-4.png"
+            className="block md:hidden w-full h-auto"
+            data-aos="fade-down"
+            alt=""
+          />
+
+          {/* Desktop image */}
+          <img
+            src="./img-1.png"
+            className="hidden md:block w-full h-auto"
+            data-aos="fade-right"
+            alt=""
+          />
+        </div>
+        <div
+          className="w-full md:w-6/12 flex flex-col justify-center items-center text-[#2A3524] px-5"
+          data-aos="zoom-in"
+        >
+          <div className="text-center leading-12 text-4xl font mb-1 lg:text-5xl lg:mb-2 xl:text-5xl">
+            Sahaaj{" "}
           </div>
 
-          {/* button */}
-          <div className="w-full flex flex-row gap-5  ">
-            <button className="bg-[#273524] text-white w-35 py-3 border border-[#273524] rounded-lg hover:bg-[#858e6e] hover:border-[#858e6e]  md:py-2 lg:py-3">
-              Shop Now
-            </button>
-            <button className=" w-35 py-3 border border-[#273524] rounded-lg hover:bg-[#858e6e] hover:border-[#858e6e] hover:text-white md:py-2 lg:py-3">
-              Our Impact
-            </button>
+          <div className="text-center text-base mb-4 font-bold lg:text-xl">
+            What does it really mean?
           </div>
-
-          {/*  */}
-          <div className="flex text-[#273524] text-[10px] flex-row leading-3 gap-5  items-end   md:gap-10 ">
-            <div className="flex flex-col  items-center  gap-3 ">
-              <img src="./icon-1.png" className="w-8"></img>
-              <div className="text-center">
-                Women <br /> Empowerment
-              </div>
-            </div>
-            <div className="flex flex-col  items-center   gap-3 ">
-              <img src="./icon-2.png" className="w-8"></img>
-              <div className="text-center">
-                Eco <br /> Friendly
-              </div>
-            </div>
-            <div className="flex flex-col  items-center  gap-3 ">
-              <img src="./icon-3.png" className="w-8"></img>
-              <div className="text-center">
-                Better Planet <br /> Better Future
-              </div>
-            </div>
-            <div className="flex flex-col  items-center  gap-3 ">
-              <img src="./icon-4.png" className="w-10"></img>
-              <div className="text-center">
-                Sustainable <br /> Living
-              </div>
-            </div>
+          <div className="text-center text-base font-light tracking-wide md:text-xs md:leading-5 lg:text-base lg:leading-6 xl:text-xl xl:leading-8">
+            Sahaaj means living in harmony with nature through simple, mindful
+            choices. We believe that creating a greener tomorrow doesn't require
+            extraordinary efforts. It begins with everyday decisions—carrying a
+            reusable bag, planting a tree, caring for a plant, or leaving water
+            for birds during summer. Together, these small acts become a
+            movement that benefits people, nature, and the wildlife around us.
           </div>
         </div>
-
-        <div className="hidden md:flex md:w-1/2 items-center justify-center ">
+        <div className="w-full md:w-3/12">
+          {/* Mobile image */}
           <img
-            src="/hero_image.png"
-            alt="Hero"
-            className="max-w-full max-h-screen object-contain"
+            src="./img-5.png"
+            className="block md:hidden w-full h-auto"
+            data-aos="fade-up"
+            alt=""
+          />
+
+          {/* Desktop image */}
+          <img
+            src="./img-2.png"
+            className="hidden md:block w-full h-auto animate-kenBurns"
+            data-aos="fade-left"
+            alt=""
           />
         </div>
       </div>
 
-      {/* bag - plant section */}
-      <div className="my-10 mx-7 text-[#273524] flex flex-col gap-7 md:flex-row">
-        <div className=" bg-[#efe3d1] flex flex-col border-0 rounded-lg sm:flex-row  ">
-          <div className="flex flex-col gap-5 p-5  pr-0 sm:w-1/2 md:gap-3 lg:gap-4 xl:gap-6">
-            <div className="text-2xl font font-bold tracking-wide md:text-xl lg:text-3xl xl:text-4xl">
-              Handmade Bags
-            </div>
-            <div className="w-4/5 text-light md:w-full md:text-xs lg:text-base">
-              Thoughtfully handmade by rural women with love and care.
-            </div>
-            <button className="text-base  w-36 py-3 border border-[#273524] rounded-sm  hover:border-[#273524] md:text-sm  md:py-1.5 lg:text-base lg:py-2 hover:bg-[#273524] hover:text-white">
-              Explore Bags <span className="ml-1">&rarr;</span>
-            </button>
-          </div>
-          <div className="flex justify-end items-end sm:w-1/2 ">
-            <img
-              src="bag.png"
-              className="border-r-0 border-b-0 rounded-br-lg"
-            ></img>
-          </div>
+      <div className="w-full px-5  flex flex-col bg-[#2A3524] text-white py-10 md:px-15 md:py-15 relative">
+        <div
+          className=" w-full text-4xl leading-12 font mb-2 lg:text-5xl lg:mb-2 xl:text-5xl "
+          data-aos="fade-right"
+        >
+          One Reusable Bag. Hundreds of Plastic Bags Avoided.
         </div>
-        {/* indore plants */}
-        <div className=" bg-[#eae9e2] flex flex-col border-0 rounded-lg sm:flex-row  ">
-          <div className="flex flex-col gap-5 p-5  pr-0 sm:w-1/2 md:gap-3 lg:gap-4 xl:gap-6">
-            <div className="text-2xl font font-bold tracking-wide md:text-xl lg:text-3xl xl:text-4xl">
-              Indore Plants
+
+        <div className="flex flex-col min-h-12    md:flex-row gap-10 justify-center items-center">
+          <div className=" md:w-7/12 ">
+            <div
+              className=" text-base mb-4 font-bold lg:text-xl"
+              data-aos="fade-right"
+            >
+              Say No to Single-Use Plastic Bags
             </div>
-            <div className="w-4/5 text-light md:w-full md:text-xs lg:text-base">
-              Bring home freshness, purify your space and nurture
+            <div
+              className=" text-base mb-6 font-light tracking-wide md:text-xs md:leading-5 lg:text-base lg:leading-6 xl:text-xl xl:leading-8"
+              data-aos="fade-right"
+            >
+              A cloth bag may seem like a small choice, but its impact lasts far
+              beyond a single shopping trip. Single-use plastic often ends up in
+              streets, rivers, forests, and open fields, where it harms both the
+              environment and animals
             </div>
-            <button className="text-base  w-36 py-3 border border-[#273524] rounded-sm  hover:border-[#273524] md:text-sm  md:py-1.5 lg:text-base lg:py-2 hover:bg-[#273524] hover:text-white">
-              Explore Plants <span className="ml-1">&rarr;</span>
+            <div
+              className=" text-2xl leading-12 font mb-2 md:text-xl  xl:text-3xl "
+              data-aos="fade-right"
+            >
+              We Believe
+            </div>
+            <div
+              className="flex relative py-11 px-2 bg-[#CCE96C] text-[#273524] mb-5 border-0 md:py-7 max-w-85 rounded-sm shadow-xl transition-all
+duration-500
+hover:-rotate-1
+hover:-translate-y-1
+hover:shadow-2xl
+"
+              data-aos="flip-left"
+            >
+              <FaQuoteLeft className="text-4xl absolute top-2 md:text-xl" />
+              <div className="text-lg md:text-sm py-2 lg:text-xl font-bold ">
+                It's our efforts that matter,
+                <br />
+                Doesn't matter how small they are
+              </div>
+              <FaQuoteRight className="text-4xl absolute bottom-2 right-2 md:text-xl" />
+            </div>
+            <button
+              className="bg-[#CCE96C] border-0 flex flex-row gap-2 rounded-md font-bold text-[#2A3524] px-4 py-2  items-center "
+              data-aos="flip-right"
+            >
+              <LuShoppingBag className="text-3xl text-[#273524]" />
+              <div> Get yours Today</div>
             </button>
           </div>
-          <div className="flex justify-end items-end sm:w-1/2 ">
+          <div className="w-full md:w-5/12 ">
             <img
-              src="plant.png"
-              className="border-r-0 border-b-0 rounded-br-lg"
-            ></img>
+              src="./img-6.png"
+              className=" w-full h-auto animate-float "
+              alt=""
+            />
           </div>
         </div>
       </div>
 
-      {/* your purchase their empowerment our planet */}
-      <div
-        className="
-    w-full
-    bg-cover
-    bg-center
-    bg-no-repeat
-    bg-[url('/bg-image.png')]
-    md:bg-[url('/bg-desk.png')] mb-10
-  "
-      >
-        <div className="flex flex-col p-5 text-[#273524] ">
-          <div className="flex flex-col  items-center text-xl leading-8 font-bold tracking-wide font md:flex-row justify-center md:mb-2 gap-2  lg:mb-4">
-            <div>Your Purchase.</div>
-            <div>Their Empowerment.</div>
-            <div>Our Planet.</div>
-          </div>
-
-          <div className="  md:hidden w-20 h-[2px] bg-[#273524]/50 mx-auto my-4 rounded-full "></div>
-          <div className="px-5 my-8 md:my-2 flex flex-col gap-7 text-sm font-light justify-center items-center md:flex-row md:gap-0 ">
-            <div className=" flex flex-row gap-4   items-center md:flex-col md:border-r md:border-[#273524]/40 md:p-4 ">
-              <img src="./icon-11.png" className="w-12"></img>
-              <div className="md:text-center">
-                Supports rural women and helps them earn with dignity
-              </div>
-            </div>
-            <div className=" flex flex-row gap-4  items-center md:flex-col md:border-r md:border-[#273524]/40 md:p-4">
-              <img src="./icon-12.png" className="w-12"></img>
-              <div className="md:text-center">
-                Promotes eco-friendly products and reduces plastic use
-              </div>
-            </div>
-            <div className=" flex flex-row gap-4  items-center md:flex-col md:border-r md:border-[#273524]/40 md:p-4">
-              <img src="./icon-13.png" className="w-12"></img>
-              <div className="md:text-center">
-                Encourages a greener environment through plants and conscious
-                living
-              </div>
-            </div>
-            <div className=" flex flex-row gap-4  items-center md:flex-col md:p-4">
-              <img src="./icon-14.png" className="w-12"></img>
-              <div className="md:text-center">
-                Builds stronger communities and empowers futures
-              </div>
-            </div>
-          </div>
+      <div className="w-full px-5  flex flex-col bg-[#2A3524] text-white py-10 md:px-15 md:py-15 relative ">
+        <div
+          className="text-3xl leading-10 mb-4 md:text-2xl md:mb-6 font-bold  text-center lg:text-3xl"
+          data-aos="zoom-in"
+        >
+          How you are helping them
         </div>
-      </div>
-
-      {/* Our Story */}
-      <div className="flex flex-col md:flex-row  ">
-        <div className="bg-[#273524] flex flex-col gap-4 text-white p-5 py-7 md:w-1/3 md:gap-2 md:py-3 md:justify-center lg:gap-5">
-          <div className="text-xl  font-bold md:text-sm lg:text-xl">
-            Our Story
-          </div>
-          <div className="text-3xl font  md:text-lg lg:text-2xl xl:text-3xl">
-            Small Choices,
-            <br /> Big Impact
-          </div>
-          <div className="text-lg font-light tracking-wide  md:text-[10px] md:leading-4 lg:text-xs xl:text-base xl:leading-6">
-            We are a purpose-driven initiative that empowers rural women through
-            handcrafted products and promotes a sustainable lifestyle.
-          </div>
-          <button className="text-base  w-36 py-3 border border-white rounded-sm  hover:border-[#faf5ed] hover:bg-[#faf5ed] hover:text-[#273524] md:text-sm  md:py-1.5 lg:text-base lg:py-2 ">
-            Know More<span className="ml-1">&rarr;</span>
-          </button>
-        </div>
-        <div className="flex w-full justify-end items-end sm:w-1/3 md:w-1/2">
-          <img
-            src="women.png"
-            className="border-r-0 border-b-0 rounded-br-lg"
-          ></img>
-        </div>
-        <div className="bg-[#faf5ed] text-[#273524] p-5 py-7 md:w-1/3 md:py-3 justify-center flex flex-col lg:gap-4">
-          <FaQuoteLeft className="text-3xl mb-5 md:mb-1" />
-
-          <div className="text-lg font-extralight tracking-wide mb-2  md:text-xs md:leading-5 lg:text-base">
-            {testimonials[activeIndex].message}
+        <div className="py-5 flex flex-col justify-center items-center md:flex-row ">
+          <div
+            className="flex flex-col justify-center items-center md:w-1/4  px-3 py-2 md:border-r md:border-r-white/40 "
+            data-aos="fade-right"
+          >
+            <img src="./img-9.png" className="w-30 mb-3"></img>
+            <div className="text-center text-base mb-1 font-bold lg:text-xl">
+              Protect Animals
+            </div>
+            <div className="text-center text-base font-light tracking-wide md:text-xs md:leading-5 xl:text-base xl:leading-6 ">
+              Stray cows often mistake plastic bags for food, which can cause
+              serious health problems or even death.
+            </div>
           </div>
 
-          <div className="font-bold mb-3">
-            - {testimonials[activeIndex].author}
+          <div
+            className="flex flex-col justify-center items-center px-3 py-2 md:w-1/4 md:border-r md:border-r-white/40 
+
+
+
+
+"
+            data-aos="zoom-in"
+          >
+            <img src="./img-10.png" className="w-30 mb-3"></img>
+            <div className="text-center text-base mb-1 font-bold lg:text-xl ">
+              Keep Them Safe
+            </div>
+            <div className="text-center text-base font-light tracking-wide md:text-xs md:leading-5 xl:text-base xl:leading-6 ">
+              Doge and efher animuls can besorne trapped in discarded plastic
+              waste.
+            </div>
           </div>
 
-          <div className="flex gap-2">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className="cursor-pointer"
-              >
-                {index === activeIndex ? (
-                  <FaCircle className="text-[#273524] text-sm" />
-                ) : (
-                  <FaRegCircle className="text-[#273524] text-sm" />
-                )}
-              </button>
-            ))}
+          <div
+            className="flex flex-col justify-center items-center py-2 px-3 md:w-1/4 md:border-r md:border-r-white/40 "
+            data-aos="zoom-in"
+          >
+            <img src="./img-11.png" className="w-30 mb-3"></img>
+            <div className="text-center text-base mb-1 font-bold lg:text-xl">
+              Harm to Birds
+            </div>
+            <div className="text-center text-base font-light tracking-wide md:text-xs md:leading-5 xl:text-base xl:leading-6 ">
+              Birds may use plastics in nears atraccidentally insest small
+              plastic pieces.
+            </div>
+          </div>
+
+          <div
+            className="flex flex-col justify-center items-center px-3 py-2  md:w-1/4 "
+            data-aos="fade-left"
+            md:data-aos="zoom-in"
+          >
+            <img src="./img-12.png" className="w-30 mb-3"></img>
+            <div className="text-center text-base mb-1 font-bold lg:text-xl">
+              Pollutes Our Planet
+            </div>
+            <div className="text-center text-base font-light tracking-wide md:text-xs md:leading-5 xl:text-base xl:leading-6 ">
+              Plastic evrually ivate down info mto splacios. hat polute. our
+              ssit and wate:.
+            </div>
           </div>
         </div>
       </div>
