@@ -26,8 +26,19 @@ function Texts() {
         Doesn't matter how small they are
       </div>
 
-      <div className="text-3xl leading-10 md:text-sm   font-bold ">
-        Small Efforts makes difference
+      <div
+        className="text-3xl leading-10 mb-4 md:text-2xl md:mb-6 font-bold  text-center lg:text-3xl"
+        data-aos="zoom-in"
+      >
+        How you are helping them
+      </div>
+
+      <div className="text-center text-base mb-1 font-bold lg:text-xl">
+        Protect Animals
+      </div>
+      <div className="text-center text-base font-light tracking-wide md:text-xs md:leading-5 xl:text-base xl:leading-6 ">
+        Stray cows often mistake plastic bags for food, which can cause serious
+        health problems or even death.
       </div>
     </div>
   );
